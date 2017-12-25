@@ -144,8 +144,9 @@ public class LoginServlet extends HttpServlet {
         
 		JSONObject obj =JSONObject.parseObject(sb.toString());
 		System.out.println(obj);
-		String jsonusername = obj.getString("userName");
-		String jsonpassword = obj.getString("userPwd");
+		String jsonaccount = obj.getString("account");
+		String jsonpassword = obj.getString("password");
+
 //        //½âÎöjson×Ö·û´®str
 //        JSONObject obj = JSON.parseObject(str);
 //        String jsname = obj.getString("Username");
@@ -161,12 +162,12 @@ public class LoginServlet extends HttpServlet {
 //			request.getSession().setAttribute("userbean", userbean);
 //			response.sendRedirect("/Service/IndexService");
 //    	}
-			UserRegister ur = new UserRegister();
-			boolean b = ur.LoginCheck(jsonusername,jsonpassword);
+			Tools ur = new Tools();
+			boolean b = ur.LoginCheck(jsonaccount,jsonpassword);
 //			System.out.println(b);
 			JSONObject fanhui1 = new  JSONObject();
-			fanhui1.put("name",jsonusername);
-			fanhui1.put("pwd",jsonpassword);
+			fanhui1.put("account",jsonaccount);
+			fanhui1.put("password",jsonpassword);
 			response.setContentType("text/html charset=utf-8");
 //			if(name.equals("abc") && pwd.equals("123"))
 //			{

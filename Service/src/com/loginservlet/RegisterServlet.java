@@ -82,13 +82,27 @@ public class RegisterServlet extends HttpServlet {
 //		JSONObject obj =JSONObject.parseObject(str);
 		JSONObject obj =JSONObject.parseObject(sb.toString());
 		System.out.println(obj);
-		String jsonusername = obj.getString("userName");
-		String jsonpassword = obj.getString("userPwd");
+		String jsonaccount = obj.getString("account");
+		String jsonpassword = obj.getString("password");
+		String jsonname = obj.getString("name");
+		String jsonsex = obj.getString("sex");
+		String jsonage = obj.getString("age");
+		String jsonidcard = obj.getString("idcard");
+		String jsontel = obj.getString("tel");
+		String jsonaddress = obj.getString("address");
         
-	    UserRegister tb = new UserRegister();
-        UserBean ub =new UserBean();
-        ub.setUserName(jsonusername);
-        ub.setPassword(jsonpassword);
+	    Tools tb = new Tools();
+        UserBean ub = new UserBean(jsonaccount, jsonpassword, jsonname, 
+        		jsonsex, jsonage, jsonidcard, jsontel, jsonaddress);
+//        ub.setAccount(jsonaccount);
+//        ub.setPassword(jsonpassword);
+//        ub.setName(jsonname);
+//        ub.setSex(jsonsex);
+//        ub.setAge(jsonage);
+//        ub.setIdcard(jsonidcard);
+//        ub.setTel(jsontel);
+//        ub.setAddress(jsonaddress);
+     
         tb.setUserBean(ub);
         try {
 			tb.regist();
@@ -96,7 +110,7 @@ public class RegisterServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		boolean b = tb.RegisterCheck(jsonusername,jsonpassword);
+		boolean b = tb.RegisterCheck(jsonaccount);
 		System.out.println(b);
 		response.setContentType("text/html charset=utf-8");
 		if(b){

@@ -9,9 +9,9 @@ import java.sql.SQLException;
 public class dbTest {
 
 		public static String driverName = "com.microsoft.sqlserver.jdbc.SQLServerDriver"; //加载JDBC驱动 
-		public static String dbURL = "jdbc:sqlserver://localhost:1433; DatabaseName=youqu"; //连接服务器和数据库sample 
-		public static String userName = "xue"; //默认用户名 
-		public static String userPwd = "miyazono0704"; //密码 
+		public static String dbURL = "jdbc:sqlserver://192.168.23.3:1433; DatabaseName=VolunteerManagement"; //连接服务器和数据库sample 
+		public static String userName = "fyc"; //默认用户名 
+		public static String userPwd = "123456"; //密码 
 		public static Connection dbConn;
 	    //装载驱动  
 	    static{  
